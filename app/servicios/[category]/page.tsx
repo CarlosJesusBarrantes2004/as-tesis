@@ -5,19 +5,17 @@ import { ChevronLeft } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-type PageProps = {
-  params: {
-    category: string;
-  };
-};
-
 export async function generateStaticParams() {
   return serviceCategories.map((category) => ({
     category: category.id,
   }));
 }
 
-function ServiceCategoryPage({ params }: PageProps) {
+export default function ServiceCategoryPage({
+  params,
+}: {
+  params: { category: string };
+}) {
   const category = serviceCategories.find((c) => c.id === params.category);
 
   if (!category) {
@@ -78,5 +76,3 @@ function ServiceCategoryPage({ params }: PageProps) {
     </div>
   );
 }
-
-export default ServiceCategoryPage;
