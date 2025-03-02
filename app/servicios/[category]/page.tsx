@@ -6,20 +6,19 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 interface ServiceCategoryPageProps {
-  params: { category: string };
+  params: Promise<{ category: string }>;
 }
 
-export default function ServiceCategoryPage({
+export default async function ServiceCategoryPage({
   params,
 }: ServiceCategoryPageProps) {
-  const category = serviceCategories.find((c) => c.id === params.category);
+  const category = (await params).category;
+  const existsCategory = serviceCategories.find((c) => c.id === category);
 
-  if (!category) {
-    notFound();
-  }
+  if (!existsCategory) notFound();
 
   const relatedCategories = serviceCategories
-    .filter((c) => c.id !== params.category)
+    .filter((c) => c.id !== category)
     .slice(0, 3);
 
   return (
@@ -34,30 +33,32 @@ export default function ServiceCategoryPage({
           Todos los servicios
         </Link>
         <span className="mx-2">/</span>
-        <span className="text-primary font-medium">{category.title}</span>
+        <span className="text-primary font-medium">{existsCategory.title}</span>
       </nav>
 
       {/* Header */}
       <div className="mb-16">
-        <div className={`inline-block p-4 rounded-lg ${category.color} mb-4`}>
-          {category.icon}
+        <div
+          className={`inline-block p-4 rounded-lg ${existsCategory.color} mb-4`}
+        >
+          {existsCategory.icon}
         </div>
         <h1 className="text-3xl md:text-4xl font-bold text-primary mb-4">
-          {category.title}
+          {existsCategory.title}
         </h1>
         <div className="w-20 h-1 bg-secondary mb-6"></div>
         <p className="text-lg text-gray-600 max-w-3xl">
-          {category.description}
+          {existsCategory.description}
         </p>
       </div>
 
       {/* Services */}
       <div className="grid md:grid-cols-2 gap-8 mb-16">
-        {category.services.map((service) => (
+        {existsCategory.services.map((service) => (
           <ServiceDetailCard
             key={service.id}
             service={service}
-            categoryColor={category.color}
+            categoryColor={existsCategory.color}
           />
         ))}
       </div>
