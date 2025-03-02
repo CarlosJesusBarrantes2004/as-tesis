@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply text-gray-800 bg-white font-sans text-base antialiased;
+}
+
+::selection {
+  @apply bg-primary text-white;
+}
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-semibold leading-tight mt-0;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-primary outline-offset-2;
+  }
+}
+
+@layer components {
+  /* Enlaces de navegación */
+  .nav-link {
+    @apply relative text-white font-medium px-3 py-2 transition-all duration-300 text-sm md:text-base rounded hover:bg-white/10;
+  }
+
+  .nav-link-active {
+    @apply text-secondary;
+  }
+
+  .nav-link::after {
+    @apply absolute content-[''] w-full h-[2px] rounded-full left-0 bottom-[-4px] bg-secondary scale-x-0 hover:scale-x-100 origin-bottom-right hover:origin-bottom-left transition-transform duration-300;
+  }
+
+  /* Botones */
+  .btn {
+    @apply inline-flex items-center justify-center px-4 py-2 rounded-md font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-primary-700 focus:ring-primary;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-gray-900 hover:bg-secondary-500 focus:ring-secondary;
+  }
+
+  .btn-outline {
+    @apply bg-transparent border-2 border-current hover:bg-white/10;
+  }
+
+  /* Contenedores y secciones */
+  .container-custom {
+    @apply px-4 sm:px-6 lg:px-8 mx-auto max-w-7xl;
+  }
+
+  .section {
+    @apply py-12 md:py-16 lg:py-20;
+  }
+
+  /* Tarjetas */
+  .card {
+    @apply bg-white rounded-lg shadow-md overflow-hidden transition-shadow duration-300 hover:shadow-lg;
+  }
+
+  /* Efectos hover */
+  .hover-lift {
+    @apply transition-transform duration-300 hover:-translate-y-1;
+  }
+}
+
+/* Utilities de accesibilidad */
+.sr-only {
+  @apply absolute w-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-0;
+  clip: rect(0, 0, 0, 0);
+}
+
+/* Responsive font size */
+@media (max-width: 640px) {
+  html {
+    font-size: 14px;
+  }
+}
