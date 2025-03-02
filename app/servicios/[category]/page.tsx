@@ -5,11 +5,7 @@ import { ChevronLeft } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-export default function ServiceCategoryPage({
-  params,
-}: {
-  params: { category: string };
-}) {
+export default function ServiceCategoryPage({ params }: any) {
   const category = serviceCategories.find((c) => c.id === params.category);
 
   if (!category) {
