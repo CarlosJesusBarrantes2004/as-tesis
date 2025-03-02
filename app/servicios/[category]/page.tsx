@@ -5,12 +5,6 @@ import { ChevronLeft } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-export function generateStaticParams() {
-  return serviceCategories.map((category) => ({
-    category: category.id,
-  }));
-}
-
 export default function ServiceCategoryPage({
   params,
 }: {
