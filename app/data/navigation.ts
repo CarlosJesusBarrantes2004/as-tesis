@@ -15,19 +15,19 @@ export const mainNavigation = [
   },
   {
     name: "Nosotros",
-    href: "nosotros",
+    href: "/nosotros",
   },
   {
     name: "Servicios",
-    href: "servicios",
+    href: "/servicios",
     submenu: serviceCategories,
   },
   {
     name: "Investigación",
-    href: "investigacion",
+    href: "/investigacion",
   },
   {
     name: "Contacto",
-    href: "contacto",
+    href: "/contacto",
   },
 ];
