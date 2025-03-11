@@ -1,10 +1,18 @@
-import { Facebook, Linkedin, Youtube, type LucideIcon } from "lucide-react";
+import {
+  Facebook,
+  Linkedin,
+  Youtube,
+  Instagram,
+  type LucideIcon,
+} from "lucide-react";
 import { socialLinks } from "@/app/data/social";
 
-const iconMap: Record<string, LucideIcon> = {
+const iconMap: Record<string, LucideIcon | string> = {
   Facebook,
   Youtube,
   Linkedin,
+  Instagram,
+  Tiktok: "/tiktok.svg",
 };
 
 function SocialLinks() {
@@ -21,7 +29,17 @@ function SocialLinks() {
             className="bg-gray-800 hover:bg-primary text-white p-2 rounded-full transition-colors duration-300"
             aria-label={link.name}
           >
-            <Icon size={18} />
+            {typeof Icon === "string" ? (
+              <img
+                src={Icon}
+                width={18}
+                height={18}
+                alt={link.name}
+                className="invert brightness-0"
+              />
+            ) : (
+              <Icon size={18} />
+            )}
           </a>
         );
       })}

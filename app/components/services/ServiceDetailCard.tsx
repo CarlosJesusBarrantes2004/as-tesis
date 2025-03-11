@@ -1,5 +1,4 @@
 import { Check } from "lucide-react";
-import Link from "next/link";
 
 interface ServiceDetailCardProps {
   service: {
@@ -12,6 +11,11 @@ interface ServiceDetailCardProps {
 }
 
 function ServiceDetailCard({ service, categoryColor }: ServiceDetailCardProps) {
+  const whatsappMessage = encodeURIComponent(
+    `Hola, solicito información de ${service.name}`
+  );
+  const whatsappUrl = `https://wa.me/51984297207?text=${whatsappMessage}`;
+
   return (
     <div className="bg-white border border-gray-100 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden">
       <div className={`${categoryColor} px-6 py-4 border-b border-gray-100`}>
@@ -46,12 +50,14 @@ function ServiceDetailCard({ service, categoryColor }: ServiceDetailCardProps) {
           </div>
         )}
 
-        <Link
-          href={"/contacto"}
+        <a
+          href={whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
           className="mt-6 w-full py-3 bg-primary hover:bg-primary-700 text-white font-medium rounded-lg transition-colors duration-300 flex justify-center "
         >
           Solicitar información
-        </Link>
+        </a>
       </div>
     </div>
   );

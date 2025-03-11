@@ -2,6 +2,7 @@ import Link from "next/link";
 import React from "react";
 import HeroStats from "./HeroStats";
 import Image from "next/image";
+import WhatsAppLink from "../../ui/WhatsAppLink";
 
 function HeroSection() {
   return (
@@ -29,7 +30,9 @@ function HeroSection() {
                 Nuestros Servicios
               </Link>
               <Link
-                href="/contacto"
+                href="https://wa.me/51984297207"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn btn-outline text-white border-white"
               >
                 Contáctanos
