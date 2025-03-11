@@ -25,11 +25,13 @@ function HeaderDesktopMenu({
           toggleSubmenu={toggleSubmenu}
         ></HeaderNavItem>
       ))}
-      <li>
+      {/**
+       * <li>
         <Link href="/cotizar" className="ml-2 btn btn-secondary hover-lift">
           Cotizar
         </Link>
       </li>
+       */}
     </ul>
   );
 }

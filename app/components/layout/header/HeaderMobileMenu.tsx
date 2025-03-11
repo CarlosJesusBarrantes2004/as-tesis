@@ -53,14 +53,16 @@ function HeaderMobileMenu({
             toggleSubmenu={toggleSubmenu}
           />
         ))}
-        <li className="pt-4 mt-4 border-t border-white/10">
+        {/**
+         * <li className="pt-4 mt-4 border-t border-white/10">
           <Link
             href="/cotizar"
             className="block w-full py-3 text-center text-gray-900 font-semibold bg-secondary rounded-md hover:bg-secondary-500 transition-colors duration-300"
           >
             Cotizar
           </Link>
-        </li>
+        </li> 
+         */}
       </ul>
     </div>
   );

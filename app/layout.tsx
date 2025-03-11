@@ -61,6 +61,20 @@ export default function RootLayout({
             })(window,document,'script','dataLayer','GTM-5BKHHZMX');
           `}
         </Script>
+
+        {/* Google Analytics - gtag.js */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-TNJEZGWCPN"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-TNJEZGWCPN');
+          `}
+        </Script>
       </head>
       <body className="font-sans flex flex-col min-h-screen bg-gray-50 text-gray-800 antialiased">
         {/* Google Tag Manager - Body (noscript) */}
