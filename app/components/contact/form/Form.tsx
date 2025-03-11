@@ -9,6 +9,7 @@ import { serviceCategories } from "@/app/data/services";
 declare global {
   interface Window {
     gtagSendEvent?: (url?: string) => boolean;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     gtag?: (...args: any[]) => void;
   }
 }
