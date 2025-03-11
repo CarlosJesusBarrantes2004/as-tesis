@@ -6,6 +6,13 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import toast from "react-hot-toast";
 import { serviceCategories } from "@/app/data/services";
 
+declare global {
+  interface Window {
+    gtagSendEvent?: (url?: string) => boolean;
+    gtag?: (...args: any[]) => void;
+  }
+}
+
 function ContactForm() {
   const {
     register,
@@ -18,6 +25,12 @@ function ContactForm() {
 
   const onSubmit = async (data: ContactFormProps) => {
     try {
+      if (window.gtag)
+        window.gtag("event", "conversion_event_contact", {
+          form_submission: "contact_form",
+          form_data: data.service || "general_inquiry",
+        });
+
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: {

@@ -20,7 +20,7 @@ export async function POST(request: Request) {
 
     // Validar los datos con Zod (opcional, pero recomendado)
     const validationResult = ContactSchema.safeParse(data);
-    if (!validationResult.success) {
+    if (!validationResult.success)
       return NextResponse.json(
         {
           error: "Datos de formulario inválidos",
@@ -28,7 +28,6 @@ export async function POST(request: Request) {
         },
         { status: 400 }
       );
-    }
 
     // Datos validados
     const validData = validationResult.data;
@@ -222,7 +221,7 @@ export async function POST(request: Request) {
                       </div>
                       
                       <p>Saludos cordiales,</p>
-                      <p><strong>El equipo de [Tu Empresa]</strong></p>
+                      <p><strong>El equipo de AS-Tesis</strong></p>
                     </td>
                   </tr>
                   

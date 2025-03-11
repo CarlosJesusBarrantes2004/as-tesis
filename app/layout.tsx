@@ -75,6 +75,26 @@ export default function RootLayout({
             gtag('config', 'G-TNJEZGWCPN');
           `}
         </Script>
+
+        {/* Google tag (gtag.js) event - delayed navigation helper */}
+        <Script id="gtag-event-helper" strategy="afterInteractive">
+          {`
+            // Helper function to delay opening a URL until a gtag event is sent.
+            // Call it in response to an action that should navigate to a URL.
+            function gtagSendEvent(url) {
+              var callback = function () {
+                if (typeof url === 'string') {
+                  window.location = url;
+                }
+              };
+              gtag('event', 'conversion_event_contact', {
+                'event_callback': callback,
+                'event_timeout': 2000
+              });
+              return false;
+            }
+          `}
+        </Script>
       </head>
       <body className="font-sans flex flex-col min-h-screen bg-gray-50 text-gray-800 antialiased">
         {/* Google Tag Manager - Body (noscript) */}
