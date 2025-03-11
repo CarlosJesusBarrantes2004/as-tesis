@@ -1,7 +1,6 @@
 "use client";
 
 import { mainNavigation } from "@/app/data/navigation";
-import Link from "next/link";
 import { X } from "lucide-react";
 import { useEffect } from "react";
 import HeaderLogo from "./HeaderLogo";

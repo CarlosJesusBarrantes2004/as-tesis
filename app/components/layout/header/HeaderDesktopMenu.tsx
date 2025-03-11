@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import HeaderNavItem from "./HeaderNavItem";
 import { mainNavigation } from "@/app/data/navigation";
 
