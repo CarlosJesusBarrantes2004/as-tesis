@@ -2,7 +2,6 @@ import Link from "next/link";
 import React from "react";
 import HeroStats from "./HeroStats";
 import Image from "next/image";
-import WhatsAppLink from "../../ui/WhatsAppLink";
 
 function HeroSection() {
   return (
