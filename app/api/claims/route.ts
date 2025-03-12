@@ -1,5 +1,5 @@
 import { ComplaintSchema } from "@/app/components/claims/schema";
-import { EMAIL_PASS, EMAIL_RECEIVER, EMAIL_USER } from "@/config";
+import { EMAIL_COMPLAINTS_BOOK, PASS_COMPLAINTS_BOOK } from "@/config";
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
@@ -9,7 +9,7 @@ export async function POST(request: Request) {
 
     // Validar los datos con Zod
     const validationResult = ComplaintSchema.safeParse(data);
-    if (!validationResult.success) {
+    if (!validationResult.success)
       return NextResponse.json(
         {
           error: "Datos de formulario inválidos",
@@ -17,12 +17,11 @@ export async function POST(request: Request) {
         },
         { status: 400 }
       );
-    }
 
     // Datos validados
     const validData = validationResult.data;
 
-    if (!EMAIL_USER || !EMAIL_PASS)
+    if (!EMAIL_COMPLAINTS_BOOK || !PASS_COMPLAINTS_BOOK)
       return NextResponse.json(
         { error: "Error en la configuración del servidor de correo" },
         { status: 500 }
@@ -31,8 +30,8 @@ export async function POST(request: Request) {
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: EMAIL_USER,
-        pass: EMAIL_PASS,
+        user: EMAIL_COMPLAINTS_BOOK,
+        pass: PASS_COMPLAINTS_BOOK,
       },
     });
 
@@ -47,8 +46,8 @@ export async function POST(request: Request) {
     const formType = validData.type === "reclamo" ? "Reclamo" : "Queja";
 
     const mailOptions = {
-      from: EMAIL_USER,
-      to: EMAIL_RECEIVER || EMAIL_USER,
+      from: EMAIL_COMPLAINTS_BOOK,
+      to: EMAIL_COMPLAINTS_BOOK,
       subject: `📢 Nuevo ${formType} - ${validData.name} [${ticketNumber}]`,
       html: `
         <!DOCTYPE html>
@@ -127,7 +126,7 @@ export async function POST(request: Request) {
 
     // Opcional: Enviar confirmación al cliente
     const clientMailOptions = {
-      from: EMAIL_USER,
+      from: EMAIL_COMPLAINTS_BOOK,
       to: validData.email,
       subject: `Confirmación de ${formType} - ${ticketNumber}`,
       html: `

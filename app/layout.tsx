@@ -14,14 +14,19 @@ export const metadata: Metadata = {
   title: `${COMPANY_NAME} | Asesoría y Redacción de Tesis Profesional`,
   description:
     "Expertos en asesoría y redacción de tesis de pregrado y posgrado. Obtén orientación profesional para estructurar, desarrollar y finalizar tu investigación con éxito.",
+  verification: {
+    other: {
+      "facebook-domain-verification": "rw8449zg6rrq3tl25q3jqjiwma412x",
+    },
+  },
   keywords:
-    "tesis, asesoría, redacción, investigación, pregrado, posgrado, académico",
+    "tesis, asesoría, redacción, investigación, pregrado, posgrado, académico, as tesis, astesis, tesis chiclayo",
   authors: [{ name: "AS-TESIS" }],
   openGraph: {
     title: "AS-TESIS | Asesoría y Redacción de Tesis Profesional",
     description:
       "Expertos en asesoría de tesis académicas para todos los niveles",
-    url: "https://www.as-tesis.com",
+    url: "https://www.astesis.pe",
     siteName: "AS-TESIS",
     locale: "es_PE",
     type: "website",
@@ -51,8 +56,8 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${poppins.variable} scroll-smooth`}>
       <head>
-        {/* Google Tag Manager - Head */}
-        <Script id="google-tag-manager" strategy="afterInteractive">
+        {/* Google Tag Manager - debe estar lo más arriba posible */}
+        <Script id="google-tag-manager" strategy="beforeInteractive">
           {`
             (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
             new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -97,7 +102,7 @@ export default function RootLayout({
         </Script>
       </head>
       <body className="font-sans flex flex-col min-h-screen bg-gray-50 text-gray-800 antialiased">
-        {/* Google Tag Manager - Body (noscript) */}
+        {/* Google Tag Manager - Body (noscript) - debe estar justo después de la apertura del body */}
         <noscript
           dangerouslySetInnerHTML={{
             __html: `
@@ -106,7 +111,6 @@ export default function RootLayout({
           `,
           }}
         />
-
         <Header></Header>
         <Suspense fallback={<Loading></Loading>}>
           <main className="flex-1 flex flex-col space-y-4">{children}</main>

@@ -1,1 +1,6 @@
-export const { EMAIL_USER, EMAIL_PASS, EMAIL_RECEIVER } = process.env;
+export const {
+  EMAIL_CONTACT,
+  PASS_CONTACT,
+  EMAIL_COMPLAINTS_BOOK,
+  PASS_COMPLAINTS_BOOK,
+} = process.env;

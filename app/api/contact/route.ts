@@ -1,5 +1,5 @@
 import { ContactSchema } from "@/app/components/contact/form/schema";
-import { EMAIL_PASS, EMAIL_RECEIVER, EMAIL_USER } from "@/config";
+import { EMAIL_CONTACT, PASS_CONTACT } from "@/config";
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
@@ -32,7 +32,7 @@ export async function POST(request: Request) {
     // Datos validados
     const validData = validationResult.data;
 
-    if (!EMAIL_USER || !EMAIL_PASS)
+    if (!EMAIL_CONTACT || !PASS_CONTACT)
       return NextResponse.json(
         {
           error: "Error en la configuración del servidor de correo",
@@ -43,8 +43,8 @@ export async function POST(request: Request) {
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: EMAIL_USER,
-        pass: EMAIL_PASS,
+        user: EMAIL_CONTACT,
+        pass: PASS_CONTACT,
       },
     });
 
@@ -57,8 +57,8 @@ export async function POST(request: Request) {
 
     // Email para el administrador
     const mailOptions = {
-      from: EMAIL_USER,
-      to: EMAIL_RECEIVER || EMAIL_USER,
+      from: EMAIL_CONTACT,
+      to: EMAIL_CONTACT,
       subject: "📄 Nuevo mensaje de contacto - " + validData.name,
       html: `
         <!DOCTYPE html>
@@ -170,7 +170,7 @@ export async function POST(request: Request) {
 
     // Email de confirmación para el cliente
     const clientMailOptions = {
-      from: EMAIL_USER,
+      from: EMAIL_CONTACT,
       to: validData.email,
       subject: "✅ Hemos recibido tu mensaje",
       html: `
