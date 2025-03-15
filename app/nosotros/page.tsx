@@ -5,7 +5,6 @@ import AboutHeroSection from "../components/about/hero/AboutHeroSection";
 import HistoryTimeline from "../components/about/history/HistoryTimeline";
 import OrganizationChart from "../components/about/organization/OrganizationChart";
 import PhilosophyTabs from "../components/about/philosophy/PhilosophyTabs";
-import TeamSection from "../components/about/team/TeamSection";
 import ValuesSection from "../components/about/values/ValuesSection";
 
 function AboutUsPage() {
@@ -16,7 +15,6 @@ function AboutUsPage() {
       <OrganizationChart></OrganizationChart>
       <ValuesSection></ValuesSection>
       <HistoryTimeline></HistoryTimeline>
-      <TeamSection></TeamSection>
       <AboutCtaSection></AboutCtaSection>
     </>
   );
