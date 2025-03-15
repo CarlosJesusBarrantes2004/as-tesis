@@ -30,12 +30,6 @@ function AboutHeroSection() {
             >
               Nuestra Historia
             </button>
-            <button
-              onClick={() => scrollToSection("equipo")}
-              className="btn btn-outline text-white"
-            >
-              Conoce al Equipo
-            </button>
           </div>
         </div>
       </div>

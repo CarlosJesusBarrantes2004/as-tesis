@@ -13,7 +13,6 @@ function AboutCtaSection() {
             innovación y el compromiso con la excelencia.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <button className="btn btn-secondary">Ver Oportunidades</button>
             <Link href={"/contacto"} className="btn btn-outline text-white">
               Contactar
             </Link>
