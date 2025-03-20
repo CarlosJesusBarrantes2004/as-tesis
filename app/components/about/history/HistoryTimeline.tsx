@@ -1,5 +1,4 @@
-import { HISTORY_TIMELINE } from "@/app/data/about";
-import TimelineItem from "../../ui/TimelineItem";
+import { FOUNDATION_YEAR } from "@/app/data/companyInfo";
 import Image from "next/image";
 
 function HistoryTimeline() {
@@ -12,15 +11,36 @@ function HistoryTimeline() {
               Nuestra Historia
             </h2>
             <div className="space-y-6">
-              {HISTORY_TIMELINE.map((item, index) => (
-                <TimelineItem
-                  key={item.id}
-                  number={item.id}
-                  title={item.period}
-                  description={item.description}
-                  isLast={index === HISTORY_TIMELINE.length - 1}
-                ></TimelineItem>
-              ))}
+              <p>
+                AS Tesis nació con el propósito de brindar asesoría académica de
+                calidad a estudiantes y profesionales en busca de culminar con
+                éxito sus trabajos de investigación. Fundada en{" "}
+                {FOUNDATION_YEAR}
+                en la ciudad de Chiclayo, Lambayeque, nuestra empresa ha crecido
+                gracias a la confianza de nuestros clientes y la excelencia de
+                nuestros servicios.
+              </p>
+              <p>
+                Desde nuestros inicios, nos enfocamos en ofrecer asesoría
+                integral en la elaboración de tesis, tesinas y proyectos de
+                investigación, abarcando diferentes áreas del conocimiento. Con
+                el tiempo, hemos consolidado un equipo de profesionales
+                altamente capacitados, comprometidos con la orientación y el
+                acompañamiento en cada etapa del proceso investigativo.
+              </p>
+              <p>
+                Nuestro enfoque se basa en la calidad, ética y responsabilidad,
+                asegurando que cada trabajo cumpla con los más altos estándares
+                académicos. Gracias a nuestro compromiso, hemos logrado ayudar a
+                cientos de estudiantes y profesionales a alcanzar sus objetivos
+                académicos y laborales.
+              </p>
+              <p>
+                Hoy en día, AS Tesis sigue evolucionando, adaptándose a las
+                nuevas exigencias del mundo académico y ofreciendo soluciones
+                innovadoras que faciliten la realización de investigaciones de
+                impacto.
+              </p>
             </div>
           </div>
           <div className="lg:w-1/2 order-1 lg:order-2">

@@ -17,14 +17,14 @@ function OrganizationChart() {
           <div className="flex justify-center">
             <div className="relative w-full max-w-4xl">
               <Image
-                src="/images/organigrama.jpg"
+                src="/images/organigrama.png"
                 alt="Organigrama de la empresa"
                 width={1200}
                 height={800}
                 className="w-full rounded-xl shadow-soft"
               />
-              <div className="absolute -bottom-4 -right-4 bg-secondary text-gray-900 px-6 py-3 rounded-lg shadow-highlight font-medium">
-                Actualizado 2024
+              <div className="absolute -bottom-6 -right-6 bg-secondary text-gray-900 px-6 py-3 rounded-lg shadow-highlight font-medium">
+                Actualizado 2025
               </div>
             </div>
           </div>

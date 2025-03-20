@@ -7,7 +7,7 @@ export const COMPANY_HOURS = {
   SATURDAY: "Sábado: 10:00 AM - 1:00 PM",
 };
 
-const FOUNDATION_YEAR = 2017;
+export const FOUNDATION_YEAR = 2017;
 const CURRENT_YEAR = new Date().getFullYear();
 export const COMPANY_EXPERIENCE_YEARS = CURRENT_YEAR - FOUNDATION_YEAR;
 

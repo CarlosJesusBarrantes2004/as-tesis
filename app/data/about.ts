@@ -1,24 +1,32 @@
 export const VALUES = [
   {
     icon: "🌟",
-    title: "Excelencia",
+    title: "Compromiso",
     description:
-      "Buscamos la excelencia en cada proyecto y servicio que ofrecemos.",
+      "Nos involucramos en cada trabajo con responsabilidad y dedicación",
   },
   {
     icon: "🤝",
-    title: "Colaboración",
-    description: "Trabajamos juntos para conseguir resultados excepcionales.",
+    title: "Ética",
+    description:
+      "Actuamos con integridad, garantizando originalidad y respeto por la investigación.",
   },
   {
     icon: "💡",
-    title: "Innovación",
-    description: "Constantemente buscamos nuevas ideas y soluciones creativas.",
+    title: "Calidad",
+    description: "Ofrecemos asesoría con los más altos estándares académicos.",
   },
   {
     icon: "🌍",
-    title: "Responsabilidad",
-    description: "Nos comprometemos con nuestros clientes y con la sociedad.",
+    title: "Innovación",
+    description:
+      "Nos adaptamos a nuevas metodologías y herramientas para mejorar nuestros servicios.",
+  },
+  {
+    icon: "📚",
+    title: "Orientación al cliente",
+    description:
+      "Brindamos atención personalizada para satisfacer las necesidades de cada estudiante o profesional.",
   },
 ];
 
@@ -84,21 +92,15 @@ export const PHILOSOPHY_CONTENT = {
   mission: {
     title: "Nuestra Misión",
     content:
-      "Proporcionamos soluciones tecnológicas innovadoras que impulsan el crecimiento de nuestros clientes, transformando desafíos en oportunidades mediante un enfoque centrado en resultados y excelencia.",
+      "Brindar asesoría académica especializada en la elaboración de tesis, tesinas y proyectos de investigación, garantizando calidad, ética y cumplimiento de los estándares académicos. Nos enfocamos en acompañar a nuestros clientes en cada etapa del proceso investigativo, facilitando su éxito académico y profesional.",
   },
   vision: {
     title: "Nuestra Visión",
     content:
-      "Aspiramos a ser referentes en el sector tecnológico, reconocidos por nuestra capacidad de anticiparnos a las tendencias del mercado y por crear soluciones que definan el futuro de las industrias donde operan nuestros clientes.",
+      "Ser la empresa líder en asesoría de tesis en Perú, reconocida por nuestra excelencia, innovación y compromiso con la educación. Aspiramos a expandir nuestros servicios y contribuir al desarrollo de investigaciones que aporten valor a la sociedad y al conocimiento científico.",
   },
   values: {
     title: "Nuestros Valores",
-    values: [
-      "Integridad en cada acción",
-      "Compromiso con la excelencia",
-      "Innovación constante",
-      "Respeto hacia nuestros clientes y colaboradores",
-      "Responsabilidad con nuestra sociedad",
-    ],
+    values: VALUES.map((value) => value.title),
   },
 };
